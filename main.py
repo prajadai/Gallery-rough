@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import filedialog
 from PIL import Image, ImageTk
 import random
+import os
 
 def preview(event, background_label, path, width, height):
     #preview of the image
@@ -93,7 +94,8 @@ def main():
     root = Tk()
     root.geometry("1080x720")
     root.title("Bhaila Gallery")
-    root.wm_iconbitmap("apple.ico")
+    asset_folder = "assets"
+    root.wm_iconbitmap(os.path.join(asset_folder, 'apple.ico'))
     root.config(bg="#87bab5")
 
     #create a frame to display the preview image
@@ -101,10 +103,24 @@ def main():
     bg_frame = Frame(root)
     bg_frame.pack(pady=20)
 
-    img_list = ['Background.jpg', 'bhaila.jpg', 'daagi3.jpg', 'group_dance.jpg',
-                'group.jpg', 'IMG1.jpg', 'IMG2.jpg', 'IMG3.jpg', 'IMG4.jpg', 'IMG5.jpg',
-                'IMG6.jpg', 'IMG7.jpg', 'IMG8.jpg', 'IMG9.jpg', 'jyapugacha_daagi.jpg',
-                'jyapugacha.jpg']
+    img_list = [
+                    os.path.join(asset_folder, 'Background.jpg'),
+                    os.path.join(asset_folder, 'bhaila.jpg'),
+                    os.path.join(asset_folder, 'daagi3.jpg'),
+                    os.path.join(asset_folder, 'group_dance.jpg'),
+                    os.path.join(asset_folder, 'group.jpg'),
+                    os.path.join(asset_folder, 'IMG1.jpg'),
+                    os.path.join(asset_folder, 'IMG2.jpg'),
+                    os.path.join(asset_folder, 'IMG3.jpg'),
+                    os.path.join(asset_folder, 'IMG4.jpg'),
+                    os.path.join(asset_folder, 'IMG5.jpg'),
+                    os.path.join(asset_folder, 'IMG6.jpg'),
+                    os.path.join(asset_folder, 'IMG7.jpg'),
+                    os.path.join(asset_folder, 'IMG8.jpg'),
+                    os.path.join(asset_folder, 'IMG9.jpg'),
+                    os.path.join(asset_folder, 'jyapugacha_daagi.jpg'),
+                    os.path.join(asset_folder, 'jyapugacha.jpg'),
+                ]
     
     # Load and resize the image
     choice = random.choice(img_list)
